@@ -1,0 +1,33 @@
+{% extends "blog/base.html" %}
+{% block content %}
+     <div class="content-section">
+          <h2 class="article-title mb-2 ml-1">Profile Info</h2>
+          <div class="media border-top pt-3">
+               <img class="rounded-circle account-img" src="https://source.unsplash.com/random/?books,{{ object.genre_interests }}">
+               <div class="media-body">
+                    <h2 class="account-heading">{{ object.user.username }}</h2>
+                    <p class="text-secondary mb-5">
+                         {{ object.user.email }}
+                         <br>
+                         Genre Interests: {{ object.genre_interests }}
+                    </p>
+               </div>
+          </div>
+          <div class="media">
+               <div class="media-body ml-1">
+                    <h3 class="article-title">Bio</h3>
+                    <p class="article-content">{{ object.bio }}</p>
+                    {% if object.user == user %}
+                         <div>
+                              <a href="{% url 'profile_update' %}" class="btn btn-secondary btn-sm mt-1 mb-1">Update Profile</a>
+                              <a href="{% url 'user-posts' object.user.username %}" class="btn btn-secondary btn-sm mt-1 mb-1">My Posts</a>
+                         </div>   
+                    {% else %}
+                         <div>
+                              <a href="{% url 'user-posts' object.user.username %}" class="btn btn-secondary btn-sm mt-1 mb-1">Posts by {{ object.user.username }}</a>
+                         </div>
+                    {% endif %}
+               </div>
+          </div>
+     </div>
+{% endblock content %}
