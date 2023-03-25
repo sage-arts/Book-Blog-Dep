@@ -5,7 +5,7 @@
      </div>
      {% for post in posts %}
           <article class="media content-section">
-               <img src="{{ post.user.profile.image }}" class="rounded-circle article-img">
+               <img src="{{ post.user.profile.image.url }}" class="rounded-circle article-img">
                <div class="media-body">
                     <div class="article-metadata">
                          <a class="mr-2" href="{% url 'user-posts' post.user.username %}">{{ post.user }}</a>
