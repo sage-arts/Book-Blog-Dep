@@ -2,7 +2,7 @@
 {% block content %}
      {% for post in posts %}
           <article class="media content-section">
-               <img src="https://source.unsplash.com/random/?books,{{ post.user.profile.genre_interests }}" class="rounded-circle article-img">
+               <img src="{{ post.user.profile.image }}" class="rounded-circle article-img">
                <div class="media-body">
                     <div class="article-metadata">
                          <a class="mr-2" href="{% url 'profile_detail' post.user.profile.id %}">{{ post.user }}</a>
