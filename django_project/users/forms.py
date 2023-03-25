@@ -20,8 +20,7 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        # fields = ['image', 'genre_interests', 'bio']
-        fields = ['genre_interests', 'bio']
+        fields = ['image', 'genre_interests', 'bio']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
