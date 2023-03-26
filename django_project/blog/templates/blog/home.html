@@ -2,7 +2,11 @@
 {% block content %}
      {% for post in posts %}
           <article class="media content-section">
-               <img src="{{ post.user.profile.image.url }}" class="rounded-circle article-img">
+               {% if post.user.profile.image %}
+                    <img src="{{ post.user.profile.image.url }}" class="rounded-circle article-img">
+               {% else %}
+                    <img src="https://robohash.org/{{ post.user.username }}?size=300x300" class="rounded-circle article-img">
+               {% endif %}
                <div class="media-body">
                     <div class="article-metadata">
                          <a class="mr-2" href="{% url 'profile_detail' post.user.profile.id %}">{{ post.user }}</a>

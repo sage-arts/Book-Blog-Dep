@@ -3,7 +3,11 @@
      <div class="content-section">
           <h2 class="article-title mb-2 ml-1">Profile Info</h2>
           <div class="media border-top pt-3">
-               <img class="rounded-circle account-img" src="{{ object.image.url }}">
+               {% if object.image %}
+                    <img src="{{ object.image.url }}" class="rounded-circle article-img">
+               {% else %}
+                    <img src="https://robohash.org/{{ object.user.username }}?size=300x300" class="rounded-circle article-img">
+               {% endif %}
                <div class="media-body">
                     <h2 class="account-heading">{{ object.user.username }}</h2>
                     <p class="text-secondary mb-5">
